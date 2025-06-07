@@ -1,0 +1,22 @@
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Zip files
+*.zip
+# Credentials and secrets
+*.pem
+*.key
+*.env
+*credentials*
+.aws/
+kubeconfig
+*token*
+*secret*
+terraform.tfvars
+
+# macOS files
+.DS_Store

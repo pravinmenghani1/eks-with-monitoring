@@ -1,0 +1,22 @@
+region         = "us-west-2"
+cluster_name   = "eks-production"
+cluster_version = "1.33"
+
+# VPC Configuration
+vpc_cidr          = "10.0.0.0/16"
+availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
+private_subnets    = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+public_subnets     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+
+# Node Group Configuration
+instance_types = ["m5.large"]
+min_size       = 2
+max_size       = 5
+desired_size   = 3
+capacity_type  = "ON_DEMAND"  # or "SPOT"
+disk_size      = 50
+
+# Add-on Versions
+metrics_server_version      = "3.11.0"
+cloudwatch_agent_version    = "0.0.9"
+cluster_autoscaler_version  = "9.29.0"

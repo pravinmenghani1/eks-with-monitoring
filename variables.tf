@@ -13,7 +13,7 @@ variable "cluster_name" {
 variable "cluster_version" {
   description = "Kubernetes version to use for the EKS cluster"
   type        = string
-  default     = "1.28"
+  default     = "1.33"
 }
 
 variable "vpc_cidr" {
@@ -43,7 +43,7 @@ variable "public_subnets" {
 variable "instance_types" {
   description = "List of instance types for the EKS managed node group"
   type        = list(string)
-  default     = ["m5.large"]
+  default     = ["t3.medium"]
 }
 
 variable "min_size" {
@@ -74,6 +74,12 @@ variable "disk_size" {
   description = "Disk size in GiB for worker nodes"
   type        = number
   default     = 50
+}
+
+variable "key_name" {
+  description = "Name of the EC2 key pair to use for the monitoring instance"
+  type        = string
+  default     = ""
 }
 
 variable "metrics_server_version" {

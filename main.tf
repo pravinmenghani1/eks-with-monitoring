@@ -69,8 +69,8 @@ module "eks" {
       capacity_type   = var.capacity_type
       disk_size       = var.disk_size
 
-      # Use latest EKS optimized AMI
-      ami_type = "AL2_x86_64"
+      # Use Amazon Linux 2023 AMI for EKS 1.33
+      ami_type = "AL2023_x86_64"
 
       # Add required tags for the Cluster Autoscaler
       tags = {

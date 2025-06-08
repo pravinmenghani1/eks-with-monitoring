@@ -1,15 +1,16 @@
-region         = "us-east-1"
+region         = "us-west-2"
 cluster_name   = "eks-production"
 cluster_version = "1.33"
+key_name       = "your-key-pair-name"  # Add your EC2 key pair name
 
 # VPC Configuration
 vpc_cidr          = "10.0.0.0/16"
-availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
+availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
 private_subnets    = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
 public_subnets     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 
 # Node Group Configuration
-instance_types = ["m5.large"]
+instance_types = ["t3.medium"]
 min_size       = 2
 max_size       = 5
 desired_size   = 3

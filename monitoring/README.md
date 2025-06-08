@@ -34,7 +34,7 @@ If you prefer to install manually on an existing EC2 instance:
 1. SSH into your EC2 instance
 2. Download the script:
    ```
-   wget https://raw.githubusercontent.com/yourusername/eks-with-monitoring/main/monitoring/ec2-monitoring-userdata.sh
+   wget https://raw.githubusercontent.com/pravinmenghani1/eks-with-monitoring/main/monitoring/ec2-monitoring-userdata.sh
    ```
 3. Make it executable:
    ```

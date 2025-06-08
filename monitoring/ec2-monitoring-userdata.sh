@@ -70,6 +70,29 @@ scrape_configs:
   - job_name: 'node'
     static_configs:
       - targets: ['localhost:9100']
+      
+  - job_name: 'kubernetes-nodes'
+    scheme: https
+    tls_config:
+      ca_file: /etc/prometheus/ca.crt
+      insecure_skip_verify: true
+    bearer_token_file: /etc/prometheus/k8s-token
+    kubernetes_sd_configs:
+    - role: node
+      api_server: EKS_API_ENDPOINT
+      tls_config:
+        ca_file: /etc/prometheus/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /etc/prometheus/k8s-token
+    relabel_configs:
+    - action: labelmap
+      regex: __meta_kubernetes_node_label_(.+)
+    - target_label: __address__
+      replacement: EKS_API_ENDPOINT
+    - source_labels: [__meta_kubernetes_node_name]
+      regex: (.+)
+      target_label: __metrics_path__
+      replacement: /api/v1/nodes/${1}/proxy/metrics
 EOF
 
 # Create Prometheus service

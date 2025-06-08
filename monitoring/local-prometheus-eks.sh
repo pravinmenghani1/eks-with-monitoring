@@ -11,17 +11,10 @@ fi
 
 # Configure AWS CLI
 echo "Configuring AWS CLI..."
-read -p "Enter your AWS Access Key ID: " AWS_ACCESS_KEY
-read -p "Enter your AWS Secret Access Key: " AWS_SECRET_KEY
 read -p "Enter your AWS region (e.g., us-west-2): " AWS_REGION
 
+# Use instance profile instead of access keys
 mkdir -p ~/.aws
-cat > ~/.aws/credentials << EOF
-[default]
-aws_access_key_id = $AWS_ACCESS_KEY
-aws_secret_access_key = $AWS_SECRET_KEY
-EOF
-
 cat > ~/.aws/config << EOF
 [default]
 region = $AWS_REGION
